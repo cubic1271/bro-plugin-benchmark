@@ -14,8 +14,7 @@ This offers a way to measure the amount of overhead involved with calls to each 
 
 ### Building
 
-make BRO=/path/to/bro/source
-make install
+make BRO=/path/to/bro/source && make install
 
 ### Using
 
