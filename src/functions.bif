@@ -1,0 +1,26 @@
+%%{
+
+#include "Plugin.h"
+typedef plugin::Plugins_PluginBenchmark::Plugin plugin_t;
+static plugin_t *plugin_ref = &plugin::Plugins_PluginBenchmark::plugin;
+
+%%}
+
+module PluginBenchmark;
+
+function EnableHook%(hook_target: int%) : bool
+    %{
+    plugin_ref->DoEnableHook(hook_target);
+    return new Val(1, TYPE_BOOL);
+    %}
+
+function DisableHook%(hook_target: int%) : bool
+    %{
+    plugin_ref->DoDisableHook(hook_target);
+    return new Val(1, TYPE_BOOL);
+    %}
+
+function GetHookCount%(%) : int
+	%{
+	return new Val(plugin_ref->GetCounter(), TYPE_INT);
+	%}
