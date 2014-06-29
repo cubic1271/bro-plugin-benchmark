@@ -1,4 +1,4 @@
-event bro-init() {
+event bro_init() {
 	PluginBenchmark::EnableHook(2);
 }
 
